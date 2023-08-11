@@ -5,7 +5,7 @@ use crate::{
     error::{Error, Result},
 };
 
-struct Png {
+pub struct Png {
     chunks: Vec<Chunk>,
 }
 
@@ -21,16 +21,16 @@ impl Png {
         &self.chunks
     }
 
-    fn chunk_by_type(&self, chunk_type: &str) -> Option<&Chunk> {
+    pub fn chunk_by_type(&self, chunk_type: &str) -> Option<&Chunk> {
         self.chunks.iter().find(|c| c.chunk_type().to_string() == chunk_type)
     }
 
     // should probably renamed "push"
-    fn append_chunk(&mut self, chunk: Chunk) {
+    pub fn append_chunk(&mut self, chunk: Chunk) {
         self.chunks.push(chunk)
     }
 
-    fn remove_chunk(&mut self, chunk_type: &str) -> Option<Chunk> {
+    pub fn remove_chunk(&mut self, chunk_type: &str) -> Option<Chunk> {
         let position = self.chunks.iter().position(|c| c.chunk_type().to_string() == chunk_type);
         match position {
             Some(index) => Some(self.chunks.remove(index)),

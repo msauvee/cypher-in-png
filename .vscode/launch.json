@@ -1,0 +1,61 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'cypher-in-png'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=cypher-in-png",
+                    "--package=cypher-in-png"
+                ],
+                "filter": {
+                    "name": "cypher-in-png",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'cypher-in-png'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=cypher-in-png",
+                    "--package=cypher-in-png"
+                ],
+                "filter": {
+                    "name": "cypher-in-png",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug 'cypher-in-png' with asstes/me.png",
+            "cargo": {
+                "args": [
+                    "build"
+                ],
+                "filter": {
+                    "name": "cypher-in-png",
+                    "kind": "bin"
+                }
+            },
+            "args": ["print",  "assets/me.png"],
+            "cwd": "${workspaceFolder}"
+        }         
+    ]
+}
